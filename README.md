@@ -1,3 +1,3 @@
 # custom-site
 Test repo
-Adding a readme file
+This repo is created for practice purpose - on Reference Architecture.
