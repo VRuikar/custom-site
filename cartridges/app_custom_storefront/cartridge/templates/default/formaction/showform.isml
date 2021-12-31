@@ -1,0 +1,2 @@
+<h1>Simple Form</h1>
+${JSON.stringify(pdict.simpleForm)}
