@@ -1,0 +1,24 @@
+Test asset template!
+
+<iscomment>
+    ---------- points to remember: ----------
+    1. asset can be created with only html body and this body can be rendered with [iscontentasset] tag
+    2. in this way, html markup will be rendered onto the parent template where [iscontentasset] is used
+    3. another way is to create a asset with html body and a rendering template
+    4. here also, [iscontentasset] tag is to be used but this tag outputs the markup written in rendering template
+       and not from asset's body
+    5. this means if we need to render body markup, content.body needs to accessed and this will render body as it is
+       so to render actual markup, [isprint] tag can be used with encoding="off" which is not recommended
+       jssource can be used but need to understand more about it.
+    6. this allows access to other attributes as well like pageTitle, pageDescription...
+    7. [iscontentasset] internally uses remote include of 'Page-Include', can we directly use this instead of the tag?
+    8. yes! 'Page-Include' can be directly used. If rendering template is set, its content is rendered otherwise
+       hmtl body will be rendered.
+    9. similar to [isinclude url="Page-Include" sf-toolkit="on"], [iscomponent pipeline="Page-Include" cid="${pdict.contentId}"]
+       can be used which yeilds same result. and again rendered content depends on whether or not rendering template is set.
+</iscomment>
+
+<isprint value="${pdict.content.body}" encoding="jssource" />
+<iscomment> ${JSON.stringify(pdict.content)} </iscomment>
+${pdict.content.pageDescription}
+${pdict.content.pageTitle}

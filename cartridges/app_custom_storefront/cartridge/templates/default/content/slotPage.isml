@@ -1,0 +1,20 @@
+<isdecorate template="common/layout/page">
+Rendering content using slots and assets.
+
+<div class="slot-1">
+    <isslot id="test-slot-1" context="global" description="created for exercise purpose" />
+</div>
+
+<iscomment> <div class="slot-1">
+    <isslot id="test-slot-1" context="global" description="created for exercise purpose" />
+</div>  </iscomment>
+</isdecorate>
+
+<iscomment>
+    --------- points ---------
+    1. how to add static image link directly to html body of a slot configuration?
+    2. Html editor in slot config uses staticlink but it does not work for sharedlibrary folders
+    There is a dedicated directory for slot images and only for these images, staticlinks can be created.
+    3. strange thing > if we try to create same path as dedicated folder in sharedlibrary, it loads image with
+    en_US as locale in url, and if this locale is changed to default, image loads (not always) --> why?
+</iscomment>
