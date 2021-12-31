@@ -1,0 +1,98 @@
+<iscomment>
+    Form to accpet user info like firstName, LastName, email, address, postal code, mobile 
+</iscomment>
+<isdecorate template="common/layout/page">
+
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/formaction.js');
+</isscript>
+
+<form action="${pdict.actionUrl}" method="POST" name="${pdict.userInfoForm.htmlName}" id="userinfo-form">
+    <div class="User details">
+        <label for="userInfoform-fname">
+            <isprint value="${pdict.userInfoForm.user.firstname.label}" encoding="htmlcontent" />
+        </label>
+        <input 
+            type="text" 
+            id="userInfoform-fname" 
+            name="${pdict.userInfoForm.user.firstname.htmlName}"
+            data-missing-error="This field can not be empty!"
+            data-range-error="Can not enter more characters."
+            <isprint value="${pdict.userInfoForm.user.firstname.attributes}" encoding="off" />
+        />
+        <div class="invalid-field" id="fname-error"></div>
+
+        <label for="userInfoform-lname">
+            <isprint value="${pdict.userInfoForm.user.lastname.label}" encoding="htmlcontent" />
+        </label>
+        <input 
+            type="text" 
+            id="userInfoform-lname"
+            data-missing-error="This is a required field!!" 
+            data-range-error="Last name exceeding 50 charachers limit!"
+            name="${pdict.userInfoForm.user.lastname.htmlName}"
+            <isprint value="${pdict.userInfoForm.user.lastname.attributes}" encoding="off" />
+        />
+        <div class="invalid-field" id="lname-error"></div>
+
+        <label for="userInfoform-email">
+            <isprint value="${pdict.userInfoForm.user.email.label}" encoding="htmlcontent" />
+        </label>
+        <input 
+            type="email" 
+            id="userInfoform-email" 
+            data-missing-error="This is a required field!!" 
+            data-range-error="First name exceeding 50 charachers limit!"
+            data-patter-mismatch="This is not a valid email!!"
+            name="${pdict.userInfoForm.user.email.htmlName}"
+            <isprint value="${pdict.userInfoForm.user.email.attributes}" encoding="off" />
+        />
+        <div class="invalid-field" id="email-error"></div>
+
+        <label for="userInfoform-mobile">
+            <isprint value="${pdict.userInfoForm.user.mobile.label}" encoding="htmlcontent" />
+        </label>
+        <input 
+            type="tel" 
+            id="userInfoform-mobile" 
+            data-missing-error="This is a required field!!"
+            data-patter-mismatch="This is not a valid mobile!!"
+            name="${pdict.userInfoForm.user.mobile.htmlName}"
+            <isprint value="${pdict.userInfoForm.user.mobile.attributes}" encoding="off" />
+        /> 
+    </div>
+
+    <div class="address details">
+        <label for="userInfoform-email">
+            <isprint value="${pdict.userInfoForm.adressdetails.address.label}" encoding="htmlcontent" />
+        </label>
+        <input 
+            type="text" 
+            id="userInfoform-address" 
+            data-missing-error="This is a required field!!" 
+            data-range-error="First name exceeding 50 charachers limit!"
+            name="${pdict.userInfoForm.adressdetails.address.htmlName}"
+            <isprint value="${pdict.userInfoForm.adressdetails.address.attributes}" encoding="off" />
+        />
+
+        <label for="userInfoform-email">
+            <isprint value="${pdict.userInfoForm.adressdetails.postalcode.label}" encoding="htmlcontent" />
+        </label>
+        <input 
+            type="text" 
+            id="userInfoform-postalcode" 
+            data-missing-error="This is a required field!!" 
+            data-range-error="First name exceeding 50 charachers limit!"
+            name="${pdict.userInfoForm.adressdetails.postalcode.htmlName}"
+            <isprint value="${pdict.userInfoForm.adressdetails.postalcode.attributes}" encoding="off" />
+        />
+    </div>
+    
+    <div class="action buttons">
+        <button type="submit" id="btn-submit">Submit User Info</button>
+        <button type="submit" id="btn-home">Home</button>
+    </div>
+    
+</form>
+</isdecorate>

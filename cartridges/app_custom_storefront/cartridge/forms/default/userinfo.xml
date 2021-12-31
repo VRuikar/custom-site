@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19" secure="false">
+    <group formid="user">
+        <field
+            formid="firstname"
+            label="First Name"
+            mandatory="true"
+            max-length="50"
+            missing-error="error.message.required"
+            range-error="error.message.50orless"
+            type="string"
+        />
+
+        <field
+            formid="lastname"
+            label="Last Name"
+            mandatory="true"
+            max-length="50"
+            missing-error="error.message.required"
+            range-error="error.message.50orless"
+            type="string"
+        />
+
+        <field
+            formid="email"
+            label="Email"
+            mandatory="true"
+            max-length="50"
+            missing-error="error.message.required"
+            parse-error="error.message.parse.email.profile.form"
+            range-error="error.message.50orless"
+            regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$"
+            value-error="ValueErrorText"
+            type="string"
+        />
+
+        <field
+            formid="mobile"
+            label="Mobile"
+            mandatory="true"
+            regexp="(^((\(?0\d{4}\)?\s?\d{3}\s?\d{3})|(\(?0\d{3}\)?\s?\d{3}\s?\d{4})|(\(?0\d{2}\)?\s?\d{4}\s?\d{4}))(\s?#(\d{4}|\d{3}))?$)"
+			missing-error="error.message.required"
+			parse-error="error.message.parse.phone.profile.form"
+            type="string"
+        />
+    </group>
+    <group formid="adressdetails">
+        <field
+            formid="address"
+            label="Address"
+            mandatory="true"
+            max-length="50"
+            missing-error="error.message.required"
+            range-error="error.message.50orless"
+            type="string"
+        />
+
+        <field
+            formid="postalcode"
+            label="Postal Code"
+            mandatory="true"
+            max-length="50"
+            missing-error="error.message.required"
+            range-error="error.message.50orless"
+            type="string"
+        />
+    </group>
+    
+</form>

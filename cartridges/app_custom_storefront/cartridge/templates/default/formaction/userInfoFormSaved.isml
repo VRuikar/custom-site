@@ -1,0 +1,3 @@
+<h1>User data</h1>
+<h2> Hello ${pdict.fname} ${pdict.lname}, </h2>
+<p> Your mobile is ${pdict.mobile} and email is ${pdict.email} </p>
