@@ -1,0 +1,75 @@
+<isdecorate template="common/layout/page">
+    
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/simpleform.js'); 
+</isscript>
+
+<iscomment>
+    ====1. Simple form with html inputs, no xml definition, no ajax, no script validation ====
+</iscomment>
+<iscomment>
+    <form action="${URLUtils.url('SimpleFormAction-Show')}" method="POST" name="simpleform" class="simpleform">
+        <label for="nickname-input">Enter Name:</label>
+        <input type="text" id="nickname-input" name="nickname" class="nickname-input" required>
+
+        <label for="address">Enter Address:</label>
+        <textarea id="address" name="address" class="address-input" rows="2" cols="25" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</iscomment>
+
+<iscomment>
+    ====2. Form with html inputs with in line script validation ====
+</iscomment>
+
+<form action="${URLUtils.url('SimpleFormAction-Show')}" method="POST" name="simpleform-1" class="simpleform-1">
+    <div class="field">
+        <label for="nickname-input">Enter Name:</label>
+        <input type="text" id="nickname-input" name="nickname" class="nickname-input" required>
+        <span class="error"></span>
+        
+    </div>
+    <div class="field">
+        <label for="address">Enter Address:</label>
+        <textarea id="address-input" name="address" class="address-input" rows="2" cols="25" required></textarea>
+        <span class="error"></span>
+        
+    </div>
+
+    <button type="submit" disabled="disabled">Submit</button>
+</form>
+
+<iscomment>3. ==== Adding inline javascript ==== </iscomment>
+<iscomment> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> </iscomment>
+<iscomment> <script>
+    // document ready is not mandatory, directly function can be called.
+    $(document).ready( function () {
+        alert('document ready!');
+        $('.field').on('keyup', function(){
+            // check if required fields have values
+            // if required fields are non-empty then only enable submit button
+            let empty = false;
+            var inputValue = $('#nickname-input').val();
+            var textAreaValue = $('#address-input').val();
+
+            if (inputValue.length == 0 || textAreaValue.length == 0) {
+            empty = true;
+            }
+
+            if (empty) {
+            $('button').attr('disabled', 'disabled');
+            } else {
+            $('button').attr('disabled', false);
+            }
+        });
+
+    });
+</script> </iscomment>
+
+<iscomment>
+    ====4. Next adding a client side js with same jquery code ====
+</iscomment>
+
+</isdecorate>

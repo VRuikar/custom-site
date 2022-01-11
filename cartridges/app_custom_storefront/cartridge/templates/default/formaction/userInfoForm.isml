@@ -1,0 +1,53 @@
+<iscomment>
+    Form to accpet user info like firstName, LastName, email, address, postal code, mobile 
+</iscomment>
+
+<form action="${pdict.actionUrl}" method="POST" name="${pdict.userInfoForm.htmlName}" >
+    <div class="User details">
+        <label for="userInfoform-fname">
+            <isprint value="${pdict.userInfoForm.user.firstname.label}" encoding="htmlcontent" />
+        </label>
+        <input 
+            type="text" 
+            id="userInfoform-fname" 
+            name="${pdict.userInfoForm.user.firstname.htmlName}"
+        />
+
+        <label for="userInfoform-lname">
+            <isprint value="${pdict.userInfoForm.user.lastname.label}" encoding="htmlcontent" />
+        </label>
+        <input 
+            type="text" 
+            id="userInfoform-lname" 
+            data-missing-error="This is a required field!!" 
+            data-range-error="First name exceeding 50 charachers limit!"
+            name="${pdict.userInfoForm.user.lastname.htmlName}"
+        />
+
+        <label for="userInfoform-email">
+            <isprint value="${pdict.userInfoForm.user.email.label}" encoding="htmlcontent" />
+        </label>
+        <input 
+            type="email" 
+            id="userInfoform-email" 
+            data-missing-error="This is a required field!!" 
+            data-range-error="First name exceeding 50 charachers limit!"
+            data-patter-mismatch="This is not a valid email!!"
+            name="${pdict.userInfoForm.user.email.htmlName}"
+        />
+
+        <label for="userInfoform-mobile">
+            <isprint value="${pdict.userInfoForm.user.mobile.label}" encoding="htmlcontent" />
+        </label>
+        <input 
+            type="tel" 
+            id="userInfoform-mobile" 
+            data-missing-error="This is a required field!!" 
+            data-range-error="First name exceeding 50 charachers limit!"
+            data-patter-mismatch="This is not a valid email!!"
+            name="${pdict.userInfoForm.user.mobile.htmlName}"
+            /> 
+    </div>
+
+    <button type="submit">Submit User Info</button>
+</form>
